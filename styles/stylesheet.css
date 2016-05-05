@@ -1,0 +1,16 @@
+body {
+    background: #A9D3E9;
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: #136692;
+    color: white;
+    padding: 5px 10px;
+}
+
+.footer {
+    background-color: #75B1D1;
+    padding: 6px;
+    clear: both;
+}
