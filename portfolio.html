@@ -9,39 +9,68 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
 <style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #136692;
-}
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #136692;
+    }
 
-li {
-    float: left;
-}
+    li {
+        float: left;
+    }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
 
-li a:hover {
-    background-color: #75B1D1;
-}
+    li a:hover {
+        background-color: #75B1D1;
+    }
+   
+    .avatarMe {
+        border-radius: 50%;
+        margin: 20px;
+        max-width: 60%;
+    }
+    
+    .aboutMe {
+        margin-top: 70px;
+    }
+    
+    .aboutMeContain {
+        background-color: aliceblue;
+    }
+    
+    .portfolioContain {
+        background-color: darkseagreen;
+    }
+
+
 </style>
 </head>
 <body>
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#portfolio">Portfolio</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+    <div class="col-lg-12">
+        <div id="home" class="container aboutMeContain boxshadow">
+            <img class="img-responsive col-md-4 avatarMe" src="images/ME_Avatar_Large.jpg">
+            <h3 class="aboutMe">My name is Jared Lundholm and I am an IT teacher. I teach A+, Network+ and simple game design using Construct 2 and Game Maker. In my spare time I play with HTML, CSS and Javascript. You can find some of my projects below.</h3>
+        </div>
+        <div id="portfolio" class="container portfolioContain">
+            <p>Portfolio</p>
+        </div>
 
-<p class="footer">By Jared Lundholm</p>
+        <p id="contact" class="footer">By Jared Lundholm</p>
+    </div>
 </body>
 </html>
