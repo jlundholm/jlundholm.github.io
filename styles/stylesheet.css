@@ -1,5 +1,16 @@
-body {
+/*body {
     background: #A9D3E9;
+    font-family: sans-serif;
+}*/
+body {
+    background: #b7deed;
+    background: -moz-linear-gradient(left, #b7deed 0%, #71ceef 0%, #b7deed 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #b7deed), color-stop(0%, #71ceef), color-stop(100%, #b7deed));
+    background: -webkit-linear-gradient(left, #b7deed 0%, #71ceef 0%, #b7deed 100%);
+    background: -o-linear-gradient(left, #b7deed 0%, #71ceef 0%, #b7deed 100%);
+    background: -ms-linear-gradient(left, #b7deed 0%, #71ceef 0%, #b7deed 100%);
+    background: linear-gradient(to right, #b7deed 0%, #71ceef 0%, #b7deed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed', GradientType=1 );
     font-family: sans-serif;
 }
 
