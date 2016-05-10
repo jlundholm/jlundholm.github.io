@@ -18,10 +18,12 @@ body {
     background-color: #136692;
     color: white;
     padding: 5px 10px;
+    font-family: sans-serif;
 }
 
 .footer {
     background-color: #75B1D1;
     padding: 6px;
     clear: both;
+    font-family: sans-serif;
 }
