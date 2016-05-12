@@ -1,31 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>HTML Links</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
-		<style>
-		
-		</style>
-    </head>
-    <body>
-	<div class="col-lg-12">
-		<h1 class="header" >The Landing Place: Welcome!</h1>
-		<!-- Some type of banner picture across the top here -->
-		
-		<p>Welcome to my place. I am a student of the webs. I use this place for practice and to link to other projects that I have worked on.</p>
-    	<ul>
-			<li><a target="_blank" href="portfolio.html">My Portfolio</a></li>
-            <li><a target="_blank" href="https://codepen.io/lundholmj/full/rerLaL">Tribute Page</a></li>
-			<li><a target="_blank" href="http://codepen.io/lundholmj/full/dMjVjW/">Portfolio Page 1.0</a></li>
-			<li><a target="_blank" href="http://codepen.io/lundholmj/full/pyxPgp/">Portfolio Page 2.0</a></li>
-			<li><a href="recipe_book.html">Recipe Book</a></li>
-		</ul>
-		<p class="footer">By Jared Lundholm</p>
-    </div>
-	</body>
+<html lang="en">
+<head>
+	<title>Welcome to my Portfolio</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #414048;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #6E6D75;
+        color: #FFFFFF;
+    }
+</style>
+</head>
+<body>
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+
+            <img class="img-responsive" src="images/ME_Avatar_400.jpg">
+            <h3>My name is Jared Lundholm and I teach at Horizon Jr/Sr High School in Evanston Wyoming. I teach A+, Network+, simple game design using Construct 2 and Game Maker, and basic android applications. In my spare time I play with HTML, CSS and Javascript. You can find some of my projects below.</h3>
+
+        
+        <footer>
+            <p>By Jared Lundholm</p>
+            <p class="text-right">Connect with me:</p>
+            <a href="mailto:lundholmj@gmail.com" target="_top"><img class="social-buttons pull-right" src="images/gmail.png" alt="gmail icon"></a>
+            <a href="https://www.freecodecamp.com/jlundholm" target="_blank"><img class="social-buttons pull-right" src="images/freecodecamp.png" alt="free code camp icon"></a>
+            <a href="https://www.facebook.com/lundholmj" target="_blank"><img class="social-buttons pull-right" src="images/facebook.png" alt="facebook icon"></a>
+            <a href="https://github.com/jlundholm" target="_blank"><img class="social-buttons pull-right" src="images/github.png" alt="github icon"></a>
+            <a href="https://www.linkedin.com/in/jaredlundholm" target="_blank"><img class="social-buttons pull-right" src="images/linkedin.png" alt="linkedin icon"></a>
+        </footer>
+    
+</body>
 </html>
