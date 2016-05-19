@@ -1,0 +1,135 @@
+html, body {
+  background-image: url(https://s3.amazonaws.com/codecademy-content/projects/bolt-network/diagmonds_@2X.png);
+  background-size: 141px 142px;
+  font-family: "Oxygen", sans-serif; 
+  font-weight: 300; 
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 970px;
+}
+
+/* jumbotron */
+
+.jumbotron {
+  color: #fff;
+  background-color: #000;
+}
+
+.jumbotron ul li {
+  padding-right: 20px;
+  display: inline;
+}
+
+form {
+  margin-top: 80px;
+}
+
+.main h1 {
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+/* supporting */
+.main,
+.supporting h2,
+.supporting p,
+.feature {
+   text-align: center;
+   color:#fff;
+ }
+
+.supporting {
+  padding-bottom:80px;
+}
+
+.supporting h2 {
+  margin-top: 50px;
+  color: #0393ff;
+}
+
+.supporting p {
+  margin-bottom: 30px;
+}
+
+.thumbnail {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* feature */
+.feature {
+  background: url(https://s3.amazonaws.com/codecademy-content/projects/bolt-network/feature.jpg) no-repeat center center;
+  background-size: cover;
+  height: 380px;
+  padding: 100px 0 0 0;
+}
+
+.feature h2 {
+  color: #0393ff;
+}
+
+.feature p {
+  color: #f8FFFF;
+}
+
+/* footer */
+.footer {
+  color: #fff;
+  background-color: #000;
+  padding: 60px;
+}
+
+.footer h2 {
+  font-size: 1.2em;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.footer ul li {
+  color: #0393ff;
+  
+}
+
+#search {
+  background:transparent;
+  border:0px;
+  border-radius:0; 
+  border-bottom:1px solid #fff;
+  color:#fff;
+  font-size: 1.3em;
+  margin: 0 20px;
+  width: 400px;
+}
+
+#search:hover {
+  border-bottom:1px solid #0393ff;
+}
+
+#search:focus {
+  border-bottom:1px solid #0393ff;
+  box-shadow:0px 0px 0px;
+  outline: 0px;
+}
+
+.btn {
+  color: #0393ff;
+	text-decoration: none;
+  border: 1px solid #0393ff;
+  border-radius: 3px;
+  padding: 10px 15px;
+  background-color: #000;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #0393ff;
+  padding: 10px 15px;
+  border-radius: 3px;
+}

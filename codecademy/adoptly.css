@@ -1,0 +1,102 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header {
+  background-color: #30627E;
+  height: 75px;
+  text-align: center;
+}
+
+.header ul li,
+.header ul li a {
+  color: #fff;
+  font-size: 1.2em;
+  margin-right: 25px;
+  line-height: 75px;
+  vertical-align: center;
+  display: inline;
+}
+
+.header ul li a:hover {
+  text-decoration: none;
+}
+
+span {
+  font-size: 1.5em;
+  background-color: #E52364;
+  padding: 19px;
+}
+
+.jumbotron {
+	background: url(https://s3.amazonaws.com/codecademy-content/projects/adoptly/bg.jpg) center center;
+	background-size: cover;
+	height: 450px; 
+}
+
+.jumbotron .container {
+	position: relative;
+	
+}
+
+.jumbotron h1 {
+  text-align: center;
+  color: #e52364;
+  font-weight: bold;
+}
+
+.supporting {
+  text-align: center;
+}
+
+.btn {
+  border-radius: 0px;
+  margin: 20px auto 60px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: #30627e;
+  width: 200px;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+.goBtn:hover {
+  color: #000000;
+  text-decoration: none;
+  transition: box-shadow 0.25s;
+}
+
+.footer {
+  color: #ffffff;
+  background-color: #e52364;
+  height: 75px;
+}
+
+.copyright {
+  
+  line-height: 75px;
+  vertical-align: center;
+}
+
+.nav li a {
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 20px auto 60px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  ul li {
+    width: 100%;
+  }
+}
