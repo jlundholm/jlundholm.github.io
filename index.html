@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Welcome to my Portfolio</title>
+	<title>Welcome</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <script> 
-        $(function(){
-        //$("#header").load("header.html"); 
-        $("#footer").load("footer.html"); 
-        });
-        
-        jQuery(window).scroll(function() {
-        if (jQuery(this).scrollTop() > 220) {
-            jQuery(".menu-secondary-wrap").css({"position": "fixed", "top": 0, "width": "950px"});
-        } else {
-            jQuery(".menu-secondary-wrap").removeAttr("style");
-        }
-        });
-        
-    </script>
 <style>
     
     html, body {
+        margin: 0;
+        padding: 0;
         font-family: Montserrat, sans-serif;
+        background-color: #333;
     }
     
     a, a:visited, a:focus, a:active, a:hover {
@@ -34,19 +22,21 @@
     }
     
     .container {
-        max-width: 1200px;
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 0;
     }
     
     .nav {
-        height: 100px;
+        min-height: 100px;
         
-        background-color: #cccdce;
     }
     
     .nav h3 {
-        color: #31363d;
-        margin-top: 30px;
+        color: #fff;
+        margin-top: 40px;
         text-align: right;
+        
     }
     
     .nav ul {
@@ -56,7 +46,34 @@
     .nav ul li {
         display: inline;
     }
-    
+   
+    .nav a,
+    .footer a {
+        display: inline-block;
+        color: #fff;
+        font-size: 1.2em;
+        padding: 9px;
+        vertical-align: middle;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-transition-duration: 0.7s;
+        transition-duration: 0.7s;
+        -webkit-transition-property: box-shadow;
+        transition-property: box-shadow;
+        box-shadow: inset 0 0 0 4px #333, 0 0 1px rgba(0, 0, 0, 0);
+}
+
+    .nav a:hover, .nav a:focus,
+    .footer a:hover, .footer a:focus {
+        box-shadow: inset 0 0 0 4px #fff, 0 0 1px rgba(0, 0, 0, 0); /* old blue border 2098d1 */
+        text-decoration: none;
+}
+    /* 
+     old button
     .nav ul li a {
         color: #fff;
         font-size: 1.2em;
@@ -76,46 +93,181 @@
         text-decoration: none;
         border: 0;
     }
+    */
     
+    /* jumbotron */
+    .jumbotron {
+        background: url(images/index/mountain.jpg) no-repeat;
+        background-size: cover;
+        min-height: 700px;
+    }
+    
+    .jumbotron p {
+        text-align: center;
+        margin-top:50px;
+    }
+    
+    /* main */
+    .main {
+        padding-top: 30px;
+        background-color: #333;
+        min-height: 400px;
+    }
+    
+    .main img {
+        border-radius: 100%;
+    }
+    
+    .main h3 {
+        color: #fff;
+        font-size: 1.3em;
+    }
+    
+    /* supporting */
+    .supporting {
+        background: url(images/index/abstract.png) no-repeat fixed;
+        background-size: cover;
+        background-color: #fff;
+        min-height: 800px;
+        
+    }
+    
+    .supporting img {
+        margin-top: 20px;
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-bottom: 20px;
+    }
+    
+    /* footer */
+    .footer {
+        min-height: 150px;
+        color: #fff;
+        padding: 20px;
+    }
 
+    .footer h2 {
+        font-size: 1.2em;
+    }
 
+    .footer ul {
+        list-style: none;
+        padding-left: 0px;
+        padding-top: 15px;
+    }
+
+    .footer ul li {
+        display: inline; 
+         
+    }
+    
+    .footer a {
+        padding-right: 15px;
+    }
+    
+    span {
+        border-bottom: 1px solid #fff;  
+    }
+    
+    .footer p {
+        padding-top: 15px;
+    }
     
 </style>
 </head>
 <body>
-    <a id="home"></a>
-<!-- Navitgation, navigation bar goes her. -->    
-        <div class="nav navbar navbar-inverse navbar-fixed-top sticky" role="navigation>
+
+<!-- Navitgation, navigation bar goes her.  -->  
+        <div class="nav" role="navigation">
             <div class="container">
                 <div class="row"> 
                     <div class="col-md-3">
                         <h3>Jared Lundholm</h3>
                     </div>
-                    <div class="col-md-4 pull-right">
+                    <div class="col-md-5 pull-right">
                         <ul>
-                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Me</a></li>
                             <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#connect">Connect</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     
 <!-- jumbotron, some sweet photo and heading. -->
+<div class="jumbotron">
+    <div class="container">
+        <p>“Failure should be our teacher, not our undertaker.</p>
+    </div>
+</div>    
 
-<img src="#" alt="some cool photo here"/>
-<p>“Failure should be our teacher, not our undertaker. Failure is delay, not defeat. It is a temporary detour, not a dead end. Failure is something we can avoid only by saying nothing, doing nothing, and being nothing.” Denis Waitley</p>
 
-<!-- main, a bio about me. photo or two and text. -->
-    
-    <img class="img-responsive" src="images/ME_Avatar_400.jpg">
-    <h3>My name is Jared Lundholm and I teach at Horizon Jr/Sr High School in Evanston Wyoming. I teach A+, Network+, simple game design using Construct 2 and Game Maker, and basic android applications. In my spare time I play with HTML, CSS and Javascript. You can find some of my projects below.</h3>
-
+<!-- main, a bio about me. photo or two and text.-->
+ 
+ <div id="about" class="main">'
+    <div class="container">
+        <div class="col-md-3">
+            <img class="img-responsive" src="images/index/ME_Avatar_400.jpg" alt="headshot of me"/>
+        </div>
+        <div class="col-md-3">
+            <img class="img-responsive" src="images/index/family.JPG" alt="picture of my family"/>
+        </div>    
+        <div class="col-md-6">
+            <h3>Welcome to my home page, my name is Jared Lundholm. I take care of the technology at Evantson High School and teach at Horizon Jr/Sr High School in Evanston, Wyoming. I teach A+, Network+, android applications, and simple game design using Construct 2 and GameMaker. In my spare time I play with HTML, CSS and Javascript. You can find some of my projects below.</h3>
+        </div>    
+    </div>
+ </div>
 <!-- supporting, a short gallery of photos that link to sites I have built. My portfolio! -->
+<div id="portfolio" class="supporting">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="https://codepen.io/lundholmj/full/rerLaL/" target="_blank"><img src="images/index/hedylamarr.JPG"/></a>
+            <a href="codecademy/headlines.html" target="_blank"><img src="images/index/headlines.JPG"/></a>
+            <a href="codecademy/adoptly.html" target="_blank"><img src="images/index/adoptly.JPG"/></a>
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+          </div>
+          <div class="col-md-4">
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+          </div>
+          <div class="col-md-4">
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+            <a href="#"><img src="images/index/placeholder.jpg"/></a>
+          </div>
+        </div>
+      </div>
+    </div>    
 
-
-<!--footer, this links to footer.html with jQuery in the top of this file. Will keep footer the same across my pages. -->        
-    <footer id="footer"></footer>
+<!--footer-->        
+    <footer>
+        <div id="connect" class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2><span>Connect with me:</span></h2>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/jaredlundholm">Linkedin</a></li>
+                            <li><a href="https://www.facebook.com/lundholmj">Facebook</a></li>
+                            <li><a href="https://github.com/jlundholm">GitHub</a></li>
+                            <li><a href="https://www.freecodecamp.com/jlundholm">FreeCodeCamp</a></li>
+                            <li><a href="https://plus.google.com/112779792423244524795">Google+</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCclipmOlcDOJADsUp6i5-OA">YouTube</a></li>
+                            <li><a href="https://lundholmj.blogspot.com/">Blog</a></li>
+                            <li><a href="https://twitter.com/lundholmj">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                    <p class="pull-right">2016 Jared Lundholm</p>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </footer> 
 </body>
 </html>
