@@ -1,0 +1,19 @@
+{
+    "quotes": [
+        {
+            "id": 0,
+            "quote": "Out of clutter, find simplicity. From discord, find harmony. In the middle of difficulty lies opportunity",
+            "author": "Albert Einstein"
+        },
+        {
+            "id": 1,
+            "quote": "Some people feel the rain, others just get wet.",
+            "author": "Bob Marley"
+        },
+        {
+            "id": 2,
+            "quote": "To alcohol! The cause of, and solution to, all of life's problems.",
+            "author": "Homer J. Simpson"
+        }
+    ]
+}
