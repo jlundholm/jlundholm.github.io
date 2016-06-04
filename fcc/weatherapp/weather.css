@@ -1,0 +1,49 @@
+body {
+  background-color: black;
+  color: #ff6600;
+  font-family: 'VT323', 'Ubuntu Mono';
+}
+
+h1 {
+  margin-top: 10%;
+  font-size: 7.5vw;
+}
+
+@media screen and (min-width: 1350px) {
+  h1 {
+    font-size: 100px;
+  }
+}
+
+.text {
+  font-size: 40px;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.temperature {
+  font-size: 60px;
+}
+
+#units {
+  color: #8000ff;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+#units:hover {
+  color: #ff0066;
+  cursor: pointer;
+  font-size: 65px;
+}
+
+.notice {
+  color: #8000ff;
+  margin: 0;
+  padding: 0;
+}
+
+.wi-weather {
+  font-size: 80px;
+  margin-top: 15px;
+}
