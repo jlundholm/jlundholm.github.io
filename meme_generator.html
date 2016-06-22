@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Meme Generator</title>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="styles/meme_generator.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            
+            <div class="meme thumbnail">
+              <img src="images/meme/meme.jpg">
+              <h1 class="top-caption">U say something?</h1>
+              <h1 class="bottom-caption">I'm all ears</h1>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+            
+            <div class="tool">
+              <h2>Create a meme</h2>
+              <form role="form">
+                <div class="form-group">
+                  <label>Image URL</label>
+                  <input id="image-url" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Top text</label>
+                  <input id="top-text" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Bottom text</label>
+                  <input id="bottom-text" type="text" class="form-control">
+                </div>
+              </form> 
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+<div class="footer navbar-fixed-bottom">
+  <div class="container">
+    <div class="col-md-12">
+    </div>
+    <p class="pull-right">2016 Jared Lundholm</p>
+  </div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="scripts/meme_generator.js"></script>
+  </body>
+</html>
