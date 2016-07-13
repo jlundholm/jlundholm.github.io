@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colorie Intake</title>
+</head>
+<body>
+   
+    <div>
+        <input id="currentWeight" type="text" placeholder="Current Weight">
+    </div>
+    <div>
+        <input id="currentHeight" type="text" placeholder="Height in inches">
+    </div>
+    <div>
+        <input id="currentAge" type="text" placeholder="Age in years">
+    </div>
+    <div>
+        <p>Male:<input id="genderMale" type="radio" name="gender" value="male" /></p>
+        <p>Female:<input id="genderFemale" type="radio" name="gender" value="female" /></p>
+    </div>
+    <div>
+        <select id="exerciseLevel">
+            <option value="1.200" selected>Sedentary(little or no exercise)</option>
+            <option value="1.375">Light(1-3 days a week)</option>
+            <option value="1.550">Moderate(3-5 days a week)</option>
+            <option value="1.725">Very active(sports 6-7 days a week)</option>
+            <option value="1.900">Extra(athlete)</option>
+        </select>
+    </div>
+    <div>
+        <button id="calculate">Submit</button>
+    </div>
+    <div>
+        <!--<p id="calcAns">Result will aprear here after you click submit.</p>-->
+        <p id="finalAns"></p>
+        <p id="finalAnsLose"></p>
+    </div>
+    
+    
+    <script type="text/javascript">
+    
+        document.getElementById("calculate").onclick = function() {
+            
+            // set some variables
+            var currentWeight = document.getElementById("currentWeight").value;
+            var currentHeight = document.getElementById("currentHeight").value;
+            var currentAge = document.getElementById("currentAge").value;
+            var currentGender;
+            
+            // check to see if Male or Female is checked
+            if (document.getElementById("genderMale").checked) {
+                currentGender = "Male";
+            } else {
+                currentGender = "Female";
+            };
+            
+            // pull out value from dropdown
+            var activityLevel = document.getElementById("exerciseLevel");
+            //var exerciseLevel = activityLevel.options[activityLevel.selectedIndex].text; // returns text (sedentary)
+            var exerciseLevel = activityLevel.options[activityLevel.selectedIndex].value; //returns value
+            
+            /*
+            // printing the variables to the screen for check.
+            document.getElementById("calcAns").innerHTML = currentWeight + " " + currentHeight + " " + currentAge + " " + currentGender + " " + exerciseLevel;
+            */
+            
+            // crunching the numbers
+            var currentWeightK = currentWeight / 2.2; // Weight in Kilograms
+            var currentHieghtK = currentHeight * 2.54; // height in centimeters
+            
+            currentWeightK = currentWeightK * 10; // A
+            currentHieghtK = currentHieghtK * 6.25; // B
+            currentAge = currentAge * 5; // B
+            
+            if (currentGender = "Male") {
+                var grandTotal = (currentWeightK + currentHieghtK) - currentAge + 5;
+            } else {
+                var grandTotal = (currentWeightK + currentHieghtK) - currentAge - 161;
+            }
+            
+            var totalCalories = grandTotal * exerciseLevel;
+            
+            // print total number of calories.
+            document.getElementById("finalAns").innerHTML = "You need to eat approximately " + Math.round((totalCalories + 0.00001) *100) / 100 + " calories daily to mantain your current weight.";
+            
+            
+            var totalCaloriesLose = Math.round(((totalCalories + 0.00001) *100) / 100) - 500;
+            document.getElementById("finalAnsLose").innerHTML = "You need to eat approximately " + totalCaloriesLose + " calories to lose a healthy 1 pound a week.";
+        
+        }
+        
+        
+        
+    
+    </script>
+</body>
+</html>
