@@ -1,0 +1,187 @@
+body {
+  min-width: 300px;
+  font-family: Montserrat, sans-serif;
+  background-color: #61646d;
+}
+
+header {
+  color: #fff;
+  background-color: #42454e;
+  padding: 5px 10px 10px 20px;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header a:hover {
+  color: #fff;
+}
+
+
+/*upper search box */
+section#initial-search {
+  height: auto;
+  width: 70%;
+  max-width: 1000px;
+  margin: 0px auto;
+  margin-top: 40px;
+  left: 0;
+  right: 0;
+  border-raduis: 10px;
+  position: relative;
+  background-color: #42454e;
+  overflow: auto;
+  border-radius: 5px;
+  
+}
+
+.search-title {
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  padding-top: 10px;
+  
+}
+
+.inner-box {
+  margin: 2px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  height: 100%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #42454e;
+  
+}
+
+/*wrapper - the search area including text field and buttons */
+
+section#initial-search .inner-box .search-area {
+  position: relative;
+  overflow: auto;
+  text-align: center;
+  
+}
+
+
+/* wrapper */
+section#initial-search .inner-box .search-area .input-box-field {
+  text-align: right;
+  width: 80%;
+  display: inline-block;
+  
+}
+
+/* search bar attributes */
+section#initial-search .inner-box .search-area input.input-box {
+  font-weight: normal;
+  width: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  text-align: right;
+  display: inline;
+}
+
+
+/*wrapper containing both buttons */
+section#initial-search .inner-box .search-area .buttons {
+  margin-left: 1%;
+  white-space: nowrap;
+  display: inline-block;
+  
+}
+
+button {
+  background-color: #33cc99;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px 3px 3px 3px;
+}
+
+button:hover {
+  background-color: #009999;
+}
+
+/* 'random' button */
+section#initial-search .inner-box .search-area input.random-button {
+  cursor: default;
+}
+
+/* 'search' button */
+section#initial-search .inner-box .search-area input.search-button {
+  cursor: default;
+  
+}
+
+/* styling for buttons when clicked */
+section#initial-search .inner-box .search-area input.search-button:active,
+section#initial-search .inner-box .search-area input.random-button:active {
+  cursor: default;
+  
+}
+
+
+/* design of search results box */
+section#search-results {
+  border-radius: 5px;
+  max-width: 950px;
+  margin: 0px auto;
+  margin-top: 40px;
+  background-color: #42454e;
+  display: none;
+}
+
+/* search dropdown */
+section#search-results .search-result {
+  color: #fff;
+  border-bottom: 2px solid #61646d;
+  margin: 5px 0px 5px 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+/*sets attributes for search result titles */
+section#search-results .search-result h1 {
+  font-size: 1.5em;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+
+/*sets attributes for search result */
+section#search-results .search-result p {
+  font-weight: normal;
+  font-size: 1.25em;
+  margin-left: 25px;
+}
+
+
+/*the below are required for the jquery ui */
+.ui-autocomplete {
+  width: 20px;
+  border: 2px solid #000;
+  border-radius: 3px;
+  padding-right: 2%;
+  background-color: #61646d;
+  text-align: right;
+  font-weight: normal;
+  color: #fff;
+  
+}
+
+.ui-autocomplete li {
+  list-style: none;
+
+}
+
+.ui-autocomplete li:hover {
+  font-weight: bold;
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+/*end autocomplete UI */
