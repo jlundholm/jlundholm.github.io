@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Start Screen</title>
+    <title>Jared's Start Screen</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
     body {
@@ -33,12 +36,18 @@
         max-width: 1000px;
     }
     
+    #searchBox {
+        border: 1px solid white;
+        margin: 10px 0px 10px 14px;
+        max-width: 938px;
+    }
+    
     .shortcuts {
         border: 1px solid white;
         float: left;
-        margin: 10px 5px 0 5px;
+        margin: 10px 15px 10px 14px;
         text-align: center;
-        width: 23%;
+        width: 22%;
     }
     
     .shortcuts li {
@@ -50,10 +59,6 @@
         text-decoration: none;
     }
     
-    #searchbox {
-        
-    }
-    
     #shotcutBox {
         
     }
@@ -62,13 +67,12 @@
 
 <body>
 
-    <p id="comment">Come up with something like the below that you can host on github and use as your home screen</p>
-
     <div>
         <h2>Welcome Jared, the current date and time: <time id="time"></time></h2>
     </div>
     
-    <div id="mainBox">
+    
+       <div class="container" id="mainBox">
         
         <div id="searchBox">
             <input type="text" placeholder="Search..." id="search" />
@@ -106,14 +110,10 @@
         </div>
         
     </div>
-    
-
-    <img src="startscreen.png" />
 
     <script type="text/javascript">
-        
-        
-          var timeInterval = 1000;
+                
+var timeInterval = 1000;
 
 function showCurrentTime(){
     var timestamp = getCurrentTimestamp();
