@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Start Screen</title>
+</head>
+<style type="text/css">
+    body {
+        background-color: #2F343F;
+    }
+    
+    h2 {
+        color: white;
+        text-align: center;
+    }
+    
+    img {
+        display: block;
+        width: auto;
+        margin: auto;
+    }
+    
+    #comment {
+        color: white;
+        text-align: center;
+    }
+    
+    #mainBox {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid white;
+        max-width: 1000px;
+    }
+    
+    .shortcuts {
+        border: 1px solid white;
+        float: left;
+        margin: 10px 5px 0 5px;
+        text-align: center;
+        width: 23%;
+    }
+    
+    .shortcuts li {
+        list-style: none;
+    }
+    
+    .shortcuts a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    #searchbox {
+        
+    }
+    
+    #shotcutBox {
+        
+    }
+    
+</style>
+
+<body>
+
+    <p id="comment">Come up with something like the below that you can host on github and use as your home screen</p>
+
+    <div>
+        <h2>Welcome Jared, the current date and time: <time id="time"></time></h2>
+    </div>
+    
+    <div id="mainBox">
+        
+        <div id="searchBox">
+            <input type="text" placeholder="Search..." id="search" />
+            <button>Search</button>
+        </div>
+        <div id="shortcutBox">
+            <div class="shortcuts">
+                <ul>
+                    <li><a href="#">Gmail</a></li>
+                    <li><a href="#">Drive</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="shortcuts">
+                <ul>
+                    <li><a href="#">one</a></li>
+                    <li><a href="#">two</a></li>
+                    <li><a href="#">three</a></li>
+                </ul>
+            </div>
+            <div class="shortcuts">
+                <ul>
+                    <li><a href="#">one</a></li>
+                    <li><a href="#">two</a></li>
+                    <li><a href="#">three</a></li>
+                </ul>
+            </div>
+            <div class="shortcuts">
+                <ul>
+                    <li><a href="#">one</a></li>
+                    <li><a href="#">two</a></li>
+                    <li><a href="#">three</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <img src="startscreen.png" />
+
+    <script type="text/javascript">
+        
+        
+          var timeInterval = 1000;
+
+function showCurrentTime(){
+    var timestamp = getCurrentTimestamp();
+
+    var timestampString = buildTimestampString(timestamp);
+   
+    appendTimestamp(timestampString, timestamp);   
+};
+
+function getCurrentTimestamp(){
+  var months = new Array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+  var dateObj = new Date();
+  
+  var timestamp = {
+    day : dateObj.getDate(),
+    month : months[dateObj.getMonth()],
+    year : dateObj.getFullYear(),
+    hour : dateObj.getHours(),
+    minutes : (dateObj.getMinutes()<=9?'0'+dateObj.getMinutes():dateObj.getMinutes())
+  }
+
+  return timestamp;
+}
+
+function buildTimestampString(timestamp){
+     var string  = timestamp.month+
+    ' '+timestamp.day+
+    ', '+timestamp.year+
+    ' '+timestamp.hour+
+    ':'+timestamp.minutes+
+    ' '+(timestamp.hour<=11?'am':'pm');
+
+    return string;
+}
+
+function appendTimestamp(timestampString, timestamp){
+   var timeDiv = document.getElementById('time');
+
+    if(timeDiv !== null) {
+        timeDiv.innerHTML = timestampString;
+        timeDiv.setAttribute('datetime',timestamp.year+'-'+ 
+            (timestamp.month+1<=9?'0'+(timestamp.month+1):timestamp.month+1)+'-'+timestamp.day+' '+timestamp.hour+':'+timestamp.minutes);
+    };  
+}
+
+setInterval(showCurrentTime,timeInterval);
+        
+    </script>
+
+</body>
+</html>
