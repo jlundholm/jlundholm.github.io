@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <title>Jared's Start Screen</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
 </head>
 <style type="text/css">
-    body {
+    
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: Montserrat, sans-serif;
         background-color: #2F343F;
     }
     
-    h2 {
+    #welcome {
         color: white;
+        margin-top: 50px;
         text-align: center;
     }
     
@@ -32,6 +39,7 @@
     #mainBox {
         display: block;
         margin: 0 auto;
+        margin-top: 50px;
         border: 1px solid white;
         max-width: 1000px;
     }
@@ -53,10 +61,18 @@
     
     .shortcuts ul {
         list-style: none;
+        
+    }
+    
+    .scHeading {
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
     }
     
     .shortcuts a {
         color: white;
+        font-size: 1.2em;
         text-decoration: none;
     }
     
@@ -68,7 +84,7 @@
 
 <body>
 
-    <div>
+    <div id="welcome">
         <h2>Welcome Jared, the current date and time: <time id="time"></time></h2>
     </div>
     
@@ -82,30 +98,54 @@
         <div id="shortcutBox">
             <div class="shortcuts">
                 <ul>
-                    <li><a href="#">Gmail</a></li>
-                    <li><a href="#">Drive</a></li>
-                    <li><a href="#">Youtube</a></li>
+                    <li><span class="scHeading">jlundholm</span></li>
+                    <li><a href="https://mail.google.com" target="_blank">Gmail</a></li>
+                    <li><a href="https://calendar.google.com" target="_blank">Calendar</a></li>
+                    <li><a href="https://drive.google.com" target="_blank">Drive</a></li>
+                    <li><a href="https://classroom.google.com" target="_blank">Classroom</a></li>
+                    <li><a href="https://admin.google.com" target="_blank">Google Admin</a></li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
                 </ul>
             </div>
             <div class="shortcuts">
                 <ul>
-                    <li><a href="#">one</a></li>
-                    <li><a href="#">two</a></li>
-                    <li><a href="#">three</a></li>
+                    <li><span class="scHeading">Uinta1</span></li>
+                    <li><a href="https://app30.schooldude.com/toolbox/mydtit/itdefault.asp" target="_blank">SchoolDude</a></li>
+                    <li><a href="https://educate.stemfuse.com" target="_blank">Educate Stem Fuse</a></li>
+                    <li><a href="#" target="_blank"></a>remove</li>
+                    <li><a href="#" target="_blank"></a>remove</li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
                 </ul>
             </div>
             <div class="shortcuts">
                 <ul>
-                    <li><a href="#">one</a></li>
-                    <li><a href="#">two</a></li>
-                    <li><a href="#">three</a></li>
+                    <li><span class="scHeading">lundholmj</span></li>
+                    <li><a href="https://mail.google.com" target="_blank">Gmail</a></li>
+                    <li><a href="https://calendar.google.com" target="_blank">Calendar</a></li>
+                    <li><a href="https://drive.google.com" target="_blank">Drive</a></li>
+                    <li><a href="https://www.blogger.com" target="_blank">Blogger</a></li>
+                    <li><a href="#" target="_blank"></a>remove</li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
                 </ul>
             </div>
             <div class="shortcuts">
                 <ul>
-                    <li><a href="#">one</a></li>
-                    <li><a href="#">two</a></li>
-                    <li><a href="#">three</a></li>
+                    <li><span class="scHeading">Personal</span></li>
+                    <li><a href="https://www.codecademy.com/pro/dashboard" target="_blank">codecademy</a></li>
+                    <li><a href="https://www.udemy.com/home/my-courses/learning/" target="_blank">udemy</a></li>
+                    <li><a href="https://classroom.udacity.com/me" target="_blank">udacity</a></li>
+                    <li><a href="https://codepen.io/lundholmj/" target="_blank">CodePen</a></li>
+                    <li><a href="#" target="_blank"></a>remove</li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
                 </ul>
             </div>
         </div>
