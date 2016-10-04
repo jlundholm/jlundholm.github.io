@@ -9,6 +9,12 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.welcome {
+  color: white;
+  font-family: cursive, sans-serif;
+  font-size: 2em;
+}
+
 a {
   text-decoration: none;
   color: #eee;
@@ -29,6 +35,7 @@ a {
   display: block;
   max-width: 300px;
   margin: 0 5px;
+  padding-bottom: 10px;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -70,23 +77,23 @@ a {
   font-weight: 400;
 }
 
-.reddit h1 {
+.orangeredtitle h1 {
   background: orangered;
 }
 
-.redditmod h1 {
+.greentitle h1 {
   background: #47d15f;
 }
 
-.social h1 {
+.bluetitle h1 {
   background: #1da1f2;
 }
 
-.fun h1 {
+.redtitle h1 {
   background: #cd201f;
 }
 
-.admin h1 {
+.orangetitle h1 {
   background: #ff9800;
 }
 
@@ -141,6 +148,6 @@ a {
 }
 
 .google {
-  margin: -50px auto -20px;
-  height: 200px;
+  margin: -80px auto -20px;
+  height: 150px;
 }
