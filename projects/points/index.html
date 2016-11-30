@@ -4,18 +4,109 @@
     <meta charset="UTF-8">
     <title>points Counter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
 	<meta name="theme-color" content="#222">
+    -->
 </head>
 <body>
     <div>
         <div>
+            <div>
+                <select id="pointsType">
+                    <option value="1">Smart Points</option>
+                    <option value="2">Points Plus</option>
+                    <option value="3" selected>Previous</option>
+                </select>
+            </div>
+            
+            <br>
+            
+            <div>
+                <input id="smartCalories" type="text" placeholder="Calories">
+            </div>
+            <div>
+                <input id="smartSatfat" type="text" placeholder="Sat. Fat">
+            </div>
+            <div>    
+                <input id="smartSugar" type="text" placeholder="Sugar (g)">
+            </div>    
+            <div>
+                <input id="smartProtein" type="text" placeholder="Protein (g)">
+            </div>
+            <div>
+            <button id="smartCalculate">Submit</button>
+            <button id="clear">Clear</button>
+            <input id="smartTotal" placeholder="Total Here">
+            </div>
+            
+            <br>
+            
+            <div>
+                <input id="plusFat" type="text" placeholder="Fat (g)">
+            </div>
+            <div>
+                <input id="plusCarbs" type="text" placeholder="Carbs (g)">
+            </div>
+            <div>    
+                <input id="plusFiber" type="text" placeholder="Fiber (g)">
+            </div>    
+            <div>
+                <input id="plusProtein" type="text" placeholder="Protein (g)">
+            </div>
+            <div>
+            <button id="plusCalculate">Submit</button>
+            <button id="clear">Clear</button>
+            <input id="plusTotal" placeholder="Total Here">
+            </div>
+            
+            <br>
+            
+            <div>
+                <input id="prevCalories" type="text" placeholder="Calories">
+            </div>
+            <div>
+                <input id="prevFat" type="text" placeholder="Fat (g)">
+            </div>
+            <div>    
+                <input id="prevFiber" type="text" placeholder="Fiber (g)">
+            </div>
+            <div>
+            <button id="prevCalculate">Submit</button>
+            <button id="clear">Clear</button>
+            <p id="prevAns"></p>
+            </div>
+            
+            <br>
+            
+            <script type="text/javascript">
+            
+                document.getElementById("prevCalculate").onclick = function() {
+                    
+                    // Set some variables for Previous Calculation.
+                    var prevCalories = document.getElementById("prevCalories").value;
+                    var prevFat = document.getElementById("prevFat").value;
+                    var prevFiber = document.getElementById("prevFiber").value;
+                    
+                    prevAns = prevCalories/50 + prevFat/12 - prevFiber/4
+                    
+                    // print points
+                    document.getElementById("prevAns").innerHTML = Math.ceil(prevAns);
+                    
+                }
+            
+            </script>
+            
+            
+           
             <img width=200px src="points_img.jpg" />
             <p>Centered and about 25px down from top so that one interface works across all
                 devices. Everything below drop down will change depending on which option 
                 is selected.
             </p>
+            
+<!-- 
             <p>Dropdown with type of points, SmartPoints, PointPlus or Previous</p>
             
             <p>Smart Points</p>
@@ -49,7 +140,7 @@
             </ul>
         </div>
     </div>
-
+-->
 
 </body>
 </html>
