@@ -41,6 +41,7 @@ body {
   float: right;
 }
 
+/* pushing text down below the nav bar */
 .main {
     padding-top: 120px;
 }
