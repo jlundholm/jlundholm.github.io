@@ -1,47 +1,40 @@
+
 body {
     margin: 0;
     padding: 0;
 }
+
 .Lobster {
     font-family: Lobster;
 }
 
-.header {
-    background-color: #222222;
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #222;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #757575;
     color: white;
-    width: 100%;
-    position: absolute;
-    top: 0;
-}
-
-/* Navigation bar */
- .header ul li {
-     display: inline;
- }
-
- .header a {
-     display: inline-block;
-     color: #fff;
-     font-size: 1.2em;
-     padding: 9px;
-     vertical-align: middle;
-     -webkit-transform: translateZ(0);
-     transform: translateZ(0);
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-     -webkit-backface-visibility: hidden;
-     backface-visibility: hidden;
-     -moz-osx-font-smoothing: grayscale;
-     -webkit-transition-duration: 0.7s;
-     transition-duration: 0.7s;
-     -webkit-transition-property: box-shadow;
-     transition-property: box-shadow;
-     box-shadow: inset 0 0 0 4px #333, 0 0 1px rgba(0, 0, 0, 0);
-}
-
- .header a:hover, .header a:focus {
-     box-shadow: inset 0 0 0 4px #fff, 0 0 1px rgba(0, 0, 0, 0);
-     text-decoration: none;
-}
+  }
 
 .main {
     padding-top: 120px;
