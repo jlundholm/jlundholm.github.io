@@ -41,9 +41,10 @@ body {
   float: right;
 }
 
-/* pushing text down below the nav bar */
+/*  */
 .main {
     /*padding-top: 20px;*/
+    background-color: #29aafe;
 }
 
 /* Footer */
