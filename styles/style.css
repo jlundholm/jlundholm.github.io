@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #29aafe;
 }
 
 .Lobster {
@@ -44,7 +45,7 @@ body {
 /*  */
 .main {
     /*padding-top: 20px;*/
-    background-color: #29aafe;
+    
 }
 
 /* Footer */
