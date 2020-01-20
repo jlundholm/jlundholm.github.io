@@ -47,8 +47,13 @@ body {
 }
 
 /* Main Body */
-main {
-  
+/* Main text */
+.motivation {
+  padding-top: 30px;
+  color: #b7b7b7;
+  text-align: center;
+  font-size: x-large;
+  font-family: 'Bangers', cursive;
 }
 
 /* Footer */
