@@ -56,6 +56,20 @@ body {
   font-family: 'Bangers', cursive;
 }
 
+/* about page */
+.aboutleft {
+  border-radius: 50%;
+  float: left;
+  margin: 25px;
+}
+
+.aboutright {
+  color: whitesmoke;
+  width: 50%;
+  float: right;
+  margin:50px;
+}
+
 /* Footer */
 .site-footer
 {
