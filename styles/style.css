@@ -1,7 +1,7 @@
 
 /* media queries for mobile devices */
 @media screen and (max-width: 1020px) {
-  .topnav, .main, .site-footer {
+  .topnav, .main, .footer {
     float: none;
     width: auto;
   }
@@ -80,7 +80,7 @@ body {
 }
 
 /* Footer */
-.site-footer
+.footer
 {
   background-color:#26272b;
   font-size:15px;
@@ -91,11 +91,11 @@ body {
 	width:100%;
 	height:80px;	
 }
-.site-footer .social-icons
+.footer .social-icons
 {
   text-align:right
 }
-.site-footer .social-icons a
+.footer .social-icons a
 {
   width:40px;
   height:40px;
@@ -114,18 +114,18 @@ body {
 
 @media (max-width:991px)
 {
-  .site-footer [class^=col-]
+  .footer [class^=col-]
   {
     margin-bottom:30px
   }
 }
 @media (max-width:767px)
 {
-  .site-footer
+  .footer
   {
     padding-bottom:0
   }
-  .site-footer .social-icons
+  .footer .social-icons
   {
     text-align:center
   }
