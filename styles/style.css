@@ -1,4 +1,13 @@
 
+/* media queries for mobile devices */
+@media screen and (max-width: 1020px) {
+  .topnav, .main, .site-footer {
+    float: none;
+    width: auto;
+  }
+}
+
+/* body */
 body {
     margin: 0;
     padding: 0;
