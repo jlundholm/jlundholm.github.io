@@ -73,9 +73,9 @@ body:after{
 
 /* about page */
 .aboutleft {
-  border-radius: 50%;
   float: left;
-  margin: 25px;
+  border-radius: 50%;
+  max-width:25%;
 }
 
 .aboutright {
