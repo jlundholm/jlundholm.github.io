@@ -175,8 +175,7 @@ body {
 @media screen and (max-width:767px)
 {
   body {
-    background: url(../images/sunset_mod.png) 50% 0 no-repeat fixed;
-    background-size: cover;
+    background-color: yellow;
   }
 
   #copyright-text {
@@ -191,6 +190,6 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
   } 
 }
