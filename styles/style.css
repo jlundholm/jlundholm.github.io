@@ -9,6 +9,21 @@ body {
     background-size: cover; 
 }
 
+body:after{
+  content:"";
+  position:fixed; /* stretch a fixed position to the whole screen */
+  top:0;
+  height:100vh; /* fix for mobile browser address bar appearing disappearing */
+  left:0;
+  right:0;
+  z-index:-1; /* needed to keep in the background */
+  background: url(../images/sunset_mod.png) center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .Lobster {
     font-family: Lobster;
 }
@@ -174,12 +189,6 @@ body {
 
 @media screen and (max-width:767px)
 {
-  body {
-    background-image: url("../images/sunset_mod.png");
-    background-size: cover;
-    width: 100%;
-  }
-
   #copyright-text {
     width: 100%;
     
