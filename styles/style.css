@@ -176,6 +176,7 @@ body {
 {
   body {
     background-color: yellow;
+    background-image: url("../images/sunset_mod.png") !important;
   }
 
   #copyright-text {
