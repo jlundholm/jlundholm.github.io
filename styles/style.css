@@ -175,8 +175,9 @@ body {
 @media screen and (max-width:767px)
 {
   body {
-    background-color: yellow;
-    background-image: url("../images/sunset_mod.png") !important;
+    background-image: url("../images/sunset_mod.png");
+    background-size: cover;
+    width: 100%;
   }
 
   #copyright-text {
