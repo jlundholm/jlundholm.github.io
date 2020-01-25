@@ -54,6 +54,14 @@
   text-align: right;
 }
 
+.motivation {
+  padding-top: 30px;
+  color: #b7b7b7;
+  text-align: center;
+  font-size: x-large;
+  font-family: 'Bangers', cursive;
+}
+
   .menu ul {
     list-style-type: none;
     margin: 0;
