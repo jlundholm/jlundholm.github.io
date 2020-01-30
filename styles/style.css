@@ -88,7 +88,7 @@ font-size: x-large;
 font-family: 'Bangers', cursive;
 }
 
-.aboutMe {
+.aboutmeImage {
   max-width: 30%;
   height: auto;
   border-radius: 50%;
@@ -97,6 +97,13 @@ font-family: 'Bangers', cursive;
   margin-right: auto;
 }
 
+.aboutmeText {
+  margin-left: 60px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+/* footer */
 .footer {
   background-color: #33353d;
   color: #ffffff;
