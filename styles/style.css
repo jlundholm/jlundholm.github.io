@@ -197,6 +197,20 @@ background-color:#306203
 background-color:#181616
 }
 
+/* student.html */
+.student a {
+  color: #f2f2f2;
+}
+/* Change the color of links on hover */
+.student a:hover {
+  color: #f2f2f2;
+}
+
+/* Add a color to the active/current link */
+.student a.active {
+  color: #f2f2f2;
+}
+
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
