@@ -88,15 +88,23 @@ font-size: x-large;
 font-family: 'Bangers', cursive;
 }
 
-.aboutMe {
+.aboutmeImage {
   max-width: 30%;
   height: auto;
-  border-radius: 50%;
+  border-radius: 5%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.aboutmeText {
+  margin-right: 40px;
+  text-align: center;
+  color: #b7b7b7;
+  font-size: x-large;
+}
+
+/* footer */
 .footer {
   background-color: #33353d;
   color: #ffffff;
@@ -187,6 +195,20 @@ background-color:#306203
 .social-icons a.github:hover
 {
 background-color:#181616
+}
+
+/* student.html */
+.student a {
+  color: #f2f2f2;
+}
+/* Change the color of links on hover */
+.student a:hover {
+  color: #f2f2f2;
+}
+
+/* Add a color to the active/current link */
+.student a.active {
+  color: #f2f2f2;
 }
 
 /* For mobile phones: */
