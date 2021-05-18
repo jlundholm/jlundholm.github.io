@@ -88,6 +88,19 @@ font-size: x-large;
 font-family: 'Bangers', cursive;
 }
 
+.motivation-student {
+  padding-top: 10px;
+  color: #b7b7b7;
+  font-size: x-large;
+  font-family: 'Bangers', cursive;
+}
+
+.student-a {
+  color: #b7b7b7;
+  text-align: center;
+  text-decoration: none;
+}
+
 .aboutmeImage {
   max-width: 30%;
   height: auto;
