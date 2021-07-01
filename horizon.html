@@ -2,92 +2,127 @@
 <html lang="en">
 
 <head>
-    <title>Class websites</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/d58cd4e730.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
-    <link href='styles/style.css' rel="stylesheet" type="text/css" />
+    <title>Jared Lundholm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>
-
-    <div class="header">
-        <div class="row nav">
-            <div class="col-3 col-s-4">    
-                <a href="index.html" class="Lobster active">Jared Lundholm</a>
-            </div>
-            <div class="col-9 col-s-8 nav-right">
-                <a href="index.html">Home</a>
-                <a href="horizon.html">Horizon Jr/Sr High School</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="aboutme.html">About</a>
-                <a href="connect.html">Contact</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="row student">
-        <div class="col-3 col-s-12">
-            <p class="motivation"><a href="https://sites.google.com/uinta1.com/computersciencediscoveries" target="_blank">Computer Science Discoveries</a></p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation"><a href="https://sites.google.com/uinta1.com/informationtechi" target="_blank">Information Technology I</a></p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation"><a href="https://sites.google.com/uinta1.com/informationtechii" target="_blank">Information Technology II</a></p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation"><a href="https://sites.google.com/uinta1.com/informationtechiii" target="_blank">Information Technology III</a></p>
-        </div>
-    </div>
-    <div class="row student">
-        <div class="col-3 col-s-12">
-            <p class="motivation">Computer Science Discoveries (CS Discoveries) is an introductory computer science course that empowers students to create authentic artifacts and engage with computer science as a medium for creativity, communication, problem solving, and fun.</p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation">The course introduces students to the foundational concepts of computer science and challenges them to explore how computing and technology can impact the world. Computer Science Principles was designed with the goal of creating leaders in computer science fields and attracting and engaging those who are traditionally underrepresented with essential computing tools and multidisciplinary opportunities.</p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation">The IT Essentials (ITE) course introduces students to the fundamentals of computer hardware and software. Topics covered are mobile devices, Linux, macOS, virtualization, and cloud computing as well as expanded information about Microsoft Windows operating systems, security, networking, troubleshooting, and the responsibilities of an IT professional.</p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation">Network+ tests the ability of a networking technician to install, maintain, troubleshoot, and support a network, and understand various aspects of networking technologies, including TCP/IP and the OSI model. It also tests knowledge of network components and where they function in association with the OSI model, network cabling, network security, and network troubleshooting.</p>
-        </div>
-    </div>
-    <div class="row student">
-        <div class="col-3 col-s-12">
-            <p class="motivation"></p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation"></p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation"></p>
-        </div>
-        <div class="col-3 col-s-12">
-            <p class="motivation"></p>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="row">
-            <div class="col-3 col-s-4">    
-                <p id="copyright-text">Copyright CC-BY Since 2019</p id="copyright-text">
-            </div>
-            <div class="col-9 col-s-8">
-                <ul class="social-icons">
-                    <li class="title" title="gmail"><a class="gmail" href="mailto:lundholmj@gmail.com" target="_blank"><i class="fas fa-at"></i></a></li>
-                    <li class="title" title="facebook"><a class="facebook" href="https://www.facebook.com/lundholmj" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                    <li class="title" title="twitter"><a class="twitter" href="https://twitter.com/lundholmj" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li class="title" title="free code camp"><a class="freecodecamp" href="https://www.freecodecamp.org/jlundholm" target="_blank"><i class="fab fa-free-code-camp"></i></a></li>
-                    <li class="title" title="linkedin"><a class="linkedin" href="https://www.linkedin.com/in/jaredlundholm/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                    <li class="title" title="github"><a class="github" href="https://github.com/jlundholm" target="_blank"><i class="fab fa-github"></i></a></li>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand">Jared Lundholm</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="https://jaredlundholm.org/portfolio.html" class="nav-link">Horizon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
 
+    <!-- Showcase -->
+    <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div>
+                    <h1>Be Awesome, Be motivated,<span class="text-warning">do the thing!</span></h1>
+                    <p class="lead my-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis natus officia
+                        perferendis cupiditate, fuga ipsam quam id adipisci fugit?
+                    </p>
+
+                </div>
+                <img class="img-fluid w-50 d-none d-sm-block" src="images/showcase.svg" alt="person at laptop">
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes -->
+    <section class="p-5 bg-light">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-code-square"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                Flip the Robot Monkey
+                            </h3>
+                            <p class="card-text">
+                                Jared: A side scrolling game created using Construct 2. Students used prebuilt sprites and programed the games and levels.
+                            </p>
+                            <a href="https://jaredlundholm.org/horizon/construct/jared/Flip/index.html"
+                                class="btn btn-primary">Play Game</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-secondary text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                Flip the Robot Monkey
+                            </h3>
+                            <p class="card-text">
+                                Angela: A side scrolling game created using Construct 2. Students used prebuilt sprites and programed the games and levels.
+                            </p>
+                            <a href="https://jaredlundholm.org/horizon/construct/AC/flip/index.html" class="btn btn-dark">Play Game</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-hdd-network"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                Flip the Robot Monkey
+                            </h3>
+                            <p class="card-text">
+                                A side scrolling game created using Construct 2. Students used prebuilt sprites and programed the games and levels.
+                            </p>
+                            <a href="#" class="btn btn-primary">Play Game</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright CC-BY Since 2019</p>
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                <i class="bi bi-arrow-up-circle h1"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
