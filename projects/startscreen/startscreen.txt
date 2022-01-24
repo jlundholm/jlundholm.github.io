@@ -1,0 +1,66 @@
+# trying to make the startscreen more useful to me.
+#Looks like I do 6 rows of 15?
+Info Tech
+Gmail
+Drive
+Calendar
+Keep
+Google Admin
+Vault
+#ChromeOS Release Notes
+UCSD1 Admin instatus
+UCSD1 Status Page
+Zabbix
+PS Admin
+Linewize Manager
+GoFMX
+Cambium
+Papercut
+Monitor
+#Office 365
+
+CTE Teacher
+PS Teacher
+Canvas
+Cisco Network Academy
+Code.org
+Udemy
+TryHackMe
+
+BOCES 5
+Office 365
+Connectwise Server Dashboard
+Connectwise Automate
+Connectwise Control
+Unifi
+UNMS
+vShere
+
+BOCES 1
+Office 365
+Wyrkshop.org
+Evanston Innovation Wyrkshop
+Budget
+People Counter
+Maker Access Pass
+Wyrkshop Libcal
+
+News
+The Verge
+Lifehacker
+Make Use Of
+/r/k12sysadmin
+
+Cyber
+TryHackMe
+TCM Security
+NVD Search and Statistics
+CVE
+
+Home Network
+Untangle
+Unifi
+Nextcloud
+Proxmox
+Webmin
+jaredlundholm.org
