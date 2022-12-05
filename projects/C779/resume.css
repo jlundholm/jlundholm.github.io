@@ -1,0 +1,33 @@
+:root {
+    /* Light Blue JL 120522*/
+    --color1: #D4E4F7;
+    /* Dark Blue */
+    --color2: #236AB9;
+    /* Orange */
+    --color3: #FC7307;
+    /* Burt Orange */
+    --color4: #B85B14;
+    /* Brown */
+    --color5: #341C09;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--color1);
+    color: var(--color2);
+}
+
+#skillsList {
+    columns: 3;
+}
+
+h1 {
+    color: var(--color5);
+    font-style: italic;
+}
+
+.sectionHeader {
+    color: var(--color3);
+    font-style: italic;
+    font-variant: small-caps;
+}
