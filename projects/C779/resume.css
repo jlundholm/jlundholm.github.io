@@ -31,3 +31,35 @@ h1 {
     font-style: italic;
     font-variant: small-caps;
 }
+
+hr {
+    color: var(--color5);
+}
+
+table {
+    margin: 14px;
+    border-collapse: separate;
+    border-spacing: 7px;
+    padding: 7px;
+    width: 98%;
+}
+
+caption {
+    font-style: italic;
+    color: gray;
+    letter-spacing: 3px;
+    text-decoration: underline;
+}
+
+th {
+    font-style: italic;
+    font-variant: small-caps;
+    color: var(--color4);
+}
+
+td {
+    border: 1px solid var(--color4);
+    vertical-align: top;
+    padding: 7px;
+    color: var(--color5);
+}
