@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jared Lundholm's Portfolio - Forms & Multimedia</title>
+    <link rel="stylesheet" href="resume.css">
+</head>
+<body>
+    <h1>Jared Lundholm's Portfolio - Forms & Multimedia</h1>
+    <section>
+        <h3 class="sectionHeader">Ullamco except</h3>
+        <p>Sunt fugiat officia amet et labore excepteur adipisicing in minim tempor sint.</p>
+    </section>
+    <hr>
+    <section>
+        <h3 class="sectionHeader">Excepteur consequatur</h3>
+        <!-- FORM ELEMENT -->
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <!-- LEFT COLUMN -->
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="noborder">First Name</td>
+                                <td class="noborder"><input type="text" name="FirstName"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Last Name</td>
+                                <td class="noborder"><input type="text" name="LastName"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Email</td>
+                                <td class="noborder"><input type="email" name="myEmail"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Password</td>
+                                <td class="noborder"><input type="password" name="myPassword"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Start Date:</td>
+                                <td class="noborder"><input type="date" name="startDate"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Contat Time:</td>
+                                <td class="noborder">
+                                    <input type="radio" name="contactTime" value="'any"><label for="any">Anytime</label><br>
+                                    <input type="radio" name="contactTime" value="'am"><label for="am">AM</label><br>
+                                    <input type="radio" name="contactTime" value="'pm"><label for="pm">PM</label><br>
+                                    <input type="radio" name="contactTime" value="'custom"><label for="any">Specific: </label>
+                                    <input type="time" name="customTime">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!-- RIGHT COLUMN -->
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="noborder">Checkboxes: </td>
+                                <td class="noborder">
+                                    <input type="checkbox" name="demoCheckbox" value="1"> One
+                                    <input type="checkbox" name="demoCheckbox" value="1"> Two
+                                    <input type="checkbox" name="demoCheckbox" value="1"> Three
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Select List: </td>
+                                <td class="noborder">
+                                    <select name="mySelectList">
+                                        <option value="1">Lorem</option>
+                                        <option value="2">Dude</option>
+                                        <option value="3">What?</option>
+                                        <option value="4">Another one?</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Multiple Select List: </td>
+                                <td class="noborder">
+                                    <select name="myMultipleSelectList" multiple size="4">
+                                        <option value="1">Lorem</option>
+                                        <option value="2">Dude</option>
+                                        <option value="3">What?</option>
+                                        <option value="4">Another one?</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Text area: </td>
+                                <td class="noborder">
+                                    <textarea name="myTextArea" rows="4" cols="25"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">File Upload:</td>
+                                <td class="noborder"><input type="file" name="myFile"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <input type="reset" id="resetBtn" name="resetBtn" value="RESET FORM">
+            <input type="submit" name="submitBtn" value="SUBMIT FORM">
+        </form>
+    </section>
+    <hr>
+    <section>
+        <h3 class="sectionHeader">Multimedia Demo</h3>
+        <!-- IMAGE -->
+        <img src="assets/image2.jpeg" alt="image of Jared" width="50%"><br>
+        <!-- SAMPLE AUDIO -->
+        <audio src="assets/demoSound.mp3" controls>
+            Time to update your browser, audio element not supported.
+        </audio><br>
+        <!-- SAMPLE VIDEO -->
+        <video src="assets/SampleVideo.mp4" controls width="50%">
+            Time to update your browser, video element not supported.
+        </video>
+    </section>
+</body>
+</html>
