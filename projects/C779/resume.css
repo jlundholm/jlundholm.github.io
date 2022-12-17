@@ -74,6 +74,10 @@ td.noborder {
     font-variant: small-caps;
 }
 
+#thirdRow {
+    background-color: orange;
+}
+
 #resetBtn {
     margin-right: 28px;
     margin-left: 30px;
