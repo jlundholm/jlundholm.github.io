@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jared Lundholm's Portfolio - Forms & Multimedia</title>
+    <link rel="stylesheet" href="resume.css">
+</head>
+<body>
+    <h1>Jared Lundholm's Portolio - Forms & Multimedia</h1>
+    <section>
+        <h3 class="sectionHeader">Non reprehenderit aliqua</h3>
+        <p>Eu occaecat cupidatat ullamco officia velit ipsum eu commodo reprehenderit irure occaecat. Incididunt culpa veniam occaecat eu eiusmod et irure esse minim. Eiusmod esse est ea adipisicing cupidatat veniam consectetur laborum aliquip nostrud dolore magna quis. Tempor et aliqua deserunt excepteur in nostrud ut mollit magna eu excepteur Lorem do. Pariatur esse voluptate reprehenderit velit ipsum.</p>
+    </section>
+    <hr>
+    <section>
+        <h3 class="sectionHeader">Non id laborum</h3>
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <!-- LEFT COLUMN -->
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="noborder">First Name:</td>
+                                <td class="noborder"><input type="text" name="firstName"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Last Name:</td>
+                                <td class="noborder"><input type="text" name="lastName"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Email:</td>
+                                <td class="noborder"><input type="email" name="myEmail"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Password:</td>
+                                <td class="noborder"><input type="password" name="myPassword"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Start Date:</td>
+                                <td class="noborder"><input type="date" name="startDate"></td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Contact Time:</td>
+                                <td class="noborder">
+                                    <input type="radio" name="contactTime" value="any"><label for="any">Anytime</label><br>
+                                    <input type="radio" name="contactTime" value="am"><label for="am">AM</label><br>
+                                    <input type="radio" name="contactTime" value="pm"><label for="pm">PM</label><br>
+                                    <input type="radio" name="contactTime" value="custom"><label for="custom">Specific: </label>
+                                    <input type="time" name="customTime">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!-- RIGHT COLUMN -->
+                    <td>
+                        <table>
+                            <tr>
+                                <td class="noborder">Checkboxes:</td>
+                                <td class="noborder">
+                                    <input type="checkbox" name="demoCheckbox" value="1"> One
+                                    <input type="checkbox" name="demoCheckbox" value="2"> Two
+                                    <input type="checkbox" name="demoCheckbox" value="3"> Three
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Select List:</td>
+                                <td class="noborder">
+                                    <select name="mySelectList" multiple size="2">
+                                        <option value="1">officia</option>
+                                        <option value="2">officia</option>
+                                        <option value="3">officia</option>
+                                        <option value="4">officia</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">Textarea:</td>
+                                <td class="noborder">
+                                    <textarea name="myTextArea" cols="25" rows="4"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="noborder">File Upload:</td>
+                                <td class="noborder"><input type="file" name="myFile"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <input id="resetBtn" type="reset" name="resetBtn" value="RESET FORM">
+            <input type="submit" name="submitBtn" value="SUBMIT FORM">
+        </form>
+    </section>
+    <hr>
+    <section>
+        <h3 class="sectionHeader">Amet aliqua</h3>
+        <!-- IMAGE -->
+        <img src="assets/image2.jpeg" alt="image of Jared Lundholm" width="25%">
+        <!-- AUDIO -->
+        <audio src="assets/demoSound.mp3" controls>
+            Time to update your browser! Audio element not supported.
+        </audio>
+        <!-- VIDEO -->
+        <video src="assets/SampleVideo.mp4" controls>
+            Time to update your browser! Video element not supported.
+        </video>
+    </section>
+</body>
+</html>
