@@ -1,0 +1,170 @@
+/* Horizon Page Styles - Teaching Portfolio Page */
+
+.intro {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-background-alt);
+}
+
+.intro__container {
+  max-width: var(--container-narrow-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  text-align: center;
+}
+
+.intro__title {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-secondary);
+}
+
+.intro__text {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  line-height: var(--line-height-relaxed);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.classes {
+  padding: var(--spacing-4xl) 0;
+}
+
+.classes__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.class-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-base);
+  text-align: center;
+}
+
+.class-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.class-card--highlighted {
+  border: 2px solid var(--color-primary);
+  background: linear-gradient(135deg, var(--color-background) 0%, rgba(37, 99, 235, 0.05) 100%);
+}
+
+.class-card__number {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  border-radius: var(--border-radius-full);
+  margin-bottom: var(--spacing-lg);
+}
+
+.class-card__title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-secondary);
+}
+
+.class-card__level {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-md);
+}
+
+.class-card__description {
+  color: var(--color-text-light);
+  line-height: var(--line-height-relaxed);
+}
+
+.student-work {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-background-alt);
+}
+
+.student-work__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.project-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-base);
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.project-card__header {
+  margin-bottom: var(--spacing-md);
+}
+
+.project-card__game-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-secondary);
+}
+
+.project-card__student {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.project-card__student-name {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.project-card__description {
+  color: var(--color-text-light);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.project-card__link:hover {
+  color: var(--color-primary-dark);
+}
+
+.project-card__link svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: var(--breakpoint-sm)) {
+  .intro__title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .class-card__title {
+    font-size: var(--font-size-xl);
+  }
+}
