@@ -1,1 +1,0 @@
-var currentWeight = document.getElementById("currentWeight").value;
