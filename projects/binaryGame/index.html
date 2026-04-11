@@ -70,11 +70,21 @@
     .game-board { display: grid; gap: 2px; background: var(--color-border); padding: 2px; border-radius: var(--border-radius-md); }
     .cell { width: 40px; height: 40px; background: var(--color-background); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 600; border-radius: 4px; }
     .cell.filled { color: var(--color-text-inverse); }
-    .cell.zero { background: var(--color-text-light); }
-    .cell.one { background: var(--color-primary); }
-    .cell.clearing { background: #16a34a; animation: pulse 0.3s ease; }
-
-    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    .cell.zero { background: var(--color-text-light); transition: all 0.1s; }
+    .cell.one { background: var(--color-primary); transition: all 0.1s; }
+    .cell.wild { background: #dc2626; transition: all 0.1s; }
+    .cell.wild-preview { background: #dc2626; opacity: 0.6; }
+    .cell.clearing-bomb { 
+      background: #dc2626 !important; 
+      transform: scale(1.2);
+      transition: transform 0.3s, background 0.1s;
+    }
+    .cell.clearing-binary { 
+      background: #2563eb !important; 
+      color: white !important;
+      transform: scale(1.2);
+      transition: transform 0.3s, background 0.1s, color 0.1s;
+    }
 
     .controls { margin-top: 1rem; display: flex; justify-content: center; gap: 1rem; }
 
@@ -123,10 +133,10 @@
     .game-over h2 { font-size: 2rem; margin-bottom: 1rem; }
     .game-over p { margin-bottom: 1.5rem; color: rgba(248, 250, 252, 0.8); }
 
-    .game-wrapper { position: relative; }
+    .game-wrapper { position: relative; display: flex; gap: 1rem; align-items: flex-start; }
 
-    .instructions { margin-top: 1.5rem; text-align: center; font-size: 0.875rem; color: var(--color-text-light); }
-    .instructions kbd { background: var(--color-background); border: 1px solid var(--color-border); border-radius: 4px; padding: 0.125rem 0.5rem; font-family: inherit; margin: 0 0.25rem; }
+    .instructions { font-size: 0.75rem; color: var(--color-text-light); display: flex; flex-direction: column; gap: 0.5rem; padding-top: 0.5rem; }
+    .instructions kbd { background: var(--color-background); border: 1px solid var(--color-border); border-radius: 4px; padding: 0.125rem 0.5rem; font-family: inherit; margin-right: 0.25rem; }
   </style>
 </head>
 <body>
@@ -163,6 +173,14 @@
       </div>
     </div>
     <div class="game-wrapper">
+      <div class="instructions">
+        <div><kbd>←</kbd><kbd>→</kbd> Move</div>
+        <div><kbd>↓</kbd> Soft Drop</div>
+        <div><kbd>↑</kbd> Hard Drop</div>
+        <div><kbd>Space</kbd> Rotate (0↔1)</div>
+        <div><kbd>P</kbd> Pause</div>
+        <div>💣 = Clears row</div>
+      </div>
       <div id="gameBoard" class="game-board"></div>
       <div id="gameOver" class="game-over" style="display: none;">
         <h2>Game Over</h2>
@@ -170,16 +188,10 @@
         <button class="btn btn--primary" onclick="restartGame()">Play Again</button>
       </div>
     </div>
-    <div class="instructions">
-      <kbd>←</kbd><kbd>→</kbd> Move &nbsp;
-      <kbd>↓</kbd> Soft Drop &nbsp;
-      <kbd>↑</kbd> Hard Drop &nbsp;
-      <kbd>Space</kbd> Rotate (0↔1)
-    </div>
   </div>
 
   <script>
-    let mode = 'easy', cols = 4, rows = 10, board = [], currentPiece = null, target = 0, score = 0, level = 1, gameInterval = null, dropInterval = 800, isGameOver = false;
+    let mode = 'easy', cols = 4, rows = 10, board = [], currentPiece = null, target = 0, score = 0, level = 1, gameInterval = null, dropInterval = 800, isGameOver = false, isPaused = false;
 
     function startGame(selectedMode) {
       mode = selectedMode;
@@ -189,6 +201,7 @@
       level = 1;
       dropInterval = 800;
       isGameOver = false;
+      isPaused = false;
       document.getElementById('score').textContent = '0';
       document.getElementById('level').textContent = '1';
       document.getElementById('modeSelect').style.display = 'none';
@@ -220,25 +233,66 @@
           cell.dataset.col = c;
           if (board[r][c] !== null) {
             cell.classList.add('filled');
-            cell.classList.add(board[r][c] === 0 ? 'zero' : 'one');
-            cell.textContent = board[r][c];
+            if (board[r][c] === 'WILD') {
+              cell.classList.add('wild');
+              cell.textContent = '💣';
+            } else {
+              cell.classList.add(board[r][c] === 0 ? 'zero' : 'one');
+              cell.textContent = board[r][c];
+            }
           }
           boardEl.appendChild(cell);
         }
       }
     }
 
+    function updateBoardCells() {
+      const cells = document.querySelectorAll('.cell');
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const index = r * cols + c;
+          if (!cells[index]) continue;
+          const cell = cells[index];
+          const wasAnimating = cell.classList.contains('clearing-binary') || cell.classList.contains('clearing-bomb');
+          cell.classList.remove('clearing-binary', 'clearing-bomb');
+          if (board[r][c] !== null) {
+            cell.classList.add('filled');
+            if (board[r][c] === 'WILD') {
+              cell.classList.add('wild');
+              cell.textContent = '💣';
+            } else {
+              cell.classList.add(board[r][c] === 0 ? 'zero' : 'one');
+              cell.textContent = board[r][c];
+            }
+          } else {
+            cell.classList.remove('filled', 'zero', 'one', 'wild');
+            cell.textContent = '';
+          }
+        }
+      }
+    }
+
     function generateTarget() {
-      target = mode === 'easy' ? Math.floor(Math.random() * 16) : Math.floor(Math.random() * 256);
+      let newTarget;
+      do {
+        newTarget = mode === 'easy' ? Math.floor(Math.random() * 16) : Math.floor(Math.random() * 256);
+      } while (newTarget === target);
+      target = newTarget;
       document.getElementById('target').textContent = target;
       document.getElementById('binaryHint').textContent = target.toString(2).padStart(cols, '0');
     }
 
     function spawnPiece() {
       const x = Math.floor(Math.random() * cols);
-      currentPiece = { value: Math.random() < 0.5 ? 0 : 1, x: x, y: 0 };
+      const wildChance = mode === 'easy' ? 1/12 : 1/33;
+      const isWild = Math.random() < wildChance;
+      currentPiece = { 
+        value: isWild ? 'WILD' : (Math.random() < 0.5 ? 0 : 1), 
+        x: x, 
+        y: 0,
+        isWild: isWild
+      };
       if (board[0][x] !== null) gameOver();
-      renderBoard();
       renderCurrentPiece();
     }
 
@@ -248,8 +302,13 @@
       const index = currentPiece.y * cols + currentPiece.x;
       if (cells[index]) {
         cells[index].classList.add('filled');
-        cells[index].classList.add(currentPiece.value === 0 ? 'zero' : 'one');
-        cells[index].textContent = currentPiece.value;
+        if (currentPiece.isWild) {
+          cells[index].classList.add('wild');
+          cells[index].textContent = '💣';
+        } else {
+          cells[index].classList.add(currentPiece.value === 0 ? 'zero' : 'one');
+          cells[index].textContent = currentPiece.value;
+        }
       }
     }
 
@@ -263,15 +322,41 @@
       const nextY = currentPiece.y + 1;
       if (nextY >= rows || board[nextY][currentPiece.x] !== null) { lockPiece(); return; }
       currentPiece.y = nextY;
-      renderBoard();
+      updateBoardCells();
       renderCurrentPiece();
     }
 
     function lockPiece() {
-      board[currentPiece.y][currentPiece.x] = currentPiece.value;
-      currentPiece = null;
-      checkLines();
-      spawnPiece();
+      if (currentPiece.isWild) {
+        clearRowInstant(currentPiece.y);
+      } else {
+        board[currentPiece.y][currentPiece.x] = currentPiece.value;
+        currentPiece = null;
+        const rowsCleared = checkLines();
+        if (!rowsCleared) {
+          spawnPiece();
+        }
+      }
+    }
+
+    function clearRowInstant(rowIndex) {
+      const cells = document.querySelectorAll('.cell');
+      for (let c = 0; c < cols; c++) {
+        const index = rowIndex * cols + c;
+        if (cells[index]) cells[index].classList.add('clearing-bomb');
+      }
+      setTimeout(() => {
+        board.splice(rowIndex, 1);
+        board.unshift(new Array(cols).fill(null));
+        score += cols * 5;
+        level = Math.floor(score / 500) + 1;
+        dropInterval = Math.max(100, 800 - (level - 1) * 50);
+        document.getElementById('score').textContent = score;
+        document.getElementById('level').textContent = level;
+        renderBoard();
+        currentPiece = null;
+        spawnPiece();
+      }, 300);
     }
 
     function checkLines() {
@@ -279,16 +364,31 @@
       for (let r = 0; r < rows; r++) {
         if (board[r].every(cell => cell !== null)) {
           let binaryValue = 0;
-          for (let c = 0; c < cols; c++) binaryValue = (binaryValue << 1) | board[r][c];
+          for (let c = 0; c < cols; c++) {
+            const cell = board[r][c];
+            if (cell === 'WILD') {
+              return false;
+            }
+            binaryValue = (binaryValue << 1) | (cell === 0 ? 0 : 1);
+          }
           if (binaryValue === target) clearedRows.push(r);
         }
       }
-      if (clearedRows.length > 0) clearRows(clearedRows);
+      if (clearedRows.length > 0) {
+        clearRows(clearedRows);
+        return true;
+      }
+      return false;
     }
 
     function clearRows(rowsToClear) {
       const cells = document.querySelectorAll('.cell');
-      rowsToClear.forEach(r => { for (let c = 0; c < cols; c++) cells[r * cols + c].classList.add('clearing'); });
+      rowsToClear.forEach(r => { 
+        for (let c = 0; c < cols; c++) {
+          const cell = cells[r * cols + c];
+          cell.classList.add('clearing-binary');
+        }
+      });
       setTimeout(() => {
         rowsToClear.sort((a, b) => b - a).forEach(r => { board.splice(r, 1); board.unshift(new Array(cols).fill(null)); });
         score += rowsToClear.length * cols * 10 * level;
@@ -297,10 +397,10 @@
         document.getElementById('score').textContent = score;
         document.getElementById('level').textContent = level;
         generateTarget();
+        updateBoardCells();
+        spawnPiece();
         startDrop();
-        renderBoard();
-        if (currentPiece) renderCurrentPiece();
-      }, 300);
+      }, 400);
     }
 
     function handleInput(e) {
@@ -308,11 +408,11 @@
       switch (e.key) {
         case 'ArrowLeft':
           e.preventDefault();
-          if (currentPiece.x > 0 && board[currentPiece.y][currentPiece.x - 1] === null) { currentPiece.x--; renderBoard(); renderCurrentPiece(); }
+          if (currentPiece.x > 0 && board[currentPiece.y][currentPiece.x - 1] === null) { currentPiece.x--; updateBoardCells(); renderCurrentPiece(); }
           break;
         case 'ArrowRight':
           e.preventDefault();
-          if (currentPiece.x < cols - 1 && board[currentPiece.y][currentPiece.x + 1] === null) { currentPiece.x++; renderBoard(); renderCurrentPiece(); }
+          if (currentPiece.x < cols - 1 && board[currentPiece.y][currentPiece.x + 1] === null) { currentPiece.x++; updateBoardCells(); renderCurrentPiece(); }
           break;
         case 'ArrowDown': e.preventDefault(); drop(); break;
         case 'ArrowUp':
@@ -325,24 +425,52 @@
         case 'R':
           e.preventDefault();
           currentPiece.value = currentPiece.value === 0 ? 1 : 0;
-          renderBoard();
+          updateBoardCells();
           renderCurrentPiece();
           break;
+        case 'p':
+        case 'P':
+          e.preventDefault();
+          togglePause();
+          break;
+      }
+    }
+
+    function togglePause() {
+      if (isGameOver) return;
+      isPaused = !isPaused;
+      if (isPaused) {
+        clearInterval(gameInterval);
+        document.getElementById('gameOver').querySelector('h2').textContent = 'Paused';
+        document.getElementById('gameOver').querySelector('p').style.display = 'none';
+        document.getElementById('gameOver').querySelector('button').style.display = 'none';
+        document.getElementById('gameOver').style.display = 'flex';
+      } else {
+        document.getElementById('gameOver').style.display = 'none';
+        document.getElementById('gameOver').querySelector('p').style.display = '';
+        document.getElementById('gameOver').querySelector('button').style.display = '';
+        startDrop();
       }
     }
 
     function gameOver() {
       isGameOver = true;
+      isPaused = false;
       clearInterval(gameInterval);
       document.getElementById('finalScore').textContent = score;
+      document.getElementById('gameOver').querySelector('h2').textContent = 'Game Over';
+      document.getElementById('gameOver').querySelector('p').style.display = '';
+      document.getElementById('gameOver').querySelector('button').style.display = '';
       document.getElementById('gameOver').style.display = 'flex';
     }
 
     function restartGame() {
-      score = 0; level = 1; dropInterval = 800; isGameOver = false;
+      score = 0; level = 1; dropInterval = 800; isGameOver = false; isPaused = false;
       document.getElementById('score').textContent = '0';
       document.getElementById('level').textContent = '1';
       document.getElementById('gameOver').style.display = 'none';
+      document.getElementById('gameOver').querySelector('p').style.display = '';
+      document.getElementById('gameOver').querySelector('button').style.display = '';
       initBoard();
       generateTarget();
       spawnPiece();
