@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Decimal to Hex and Hex to Decimal converter with step-by-step demonstration">
+  <title>Hex Converter - Jared Lundholm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../../assets/images/favicon.ico">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__container">
+      <a href="../../index.html" class="nav__logo">Jared Lundholm</a>
+      <ul class="nav__menu">
+        <li>
+          <a href="../../index.html" class="nav__link">Home</a>
+        </li>
+        <li>
+          <a href="../../portfolio.html" class="nav__link">Portfolio</a>
+        </li>
+        <li>
+          <a href="../../horizon.html" class="nav__link">Horizon</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section class="converter">
+      <div class="converter__layout">
+        <!-- Key / Reference Section -->
+        <aside class="converter__key">
+          <h2 class="converter__key-title">Hex Key</h2>
+          <div class="converter__key-grid">
+            <div class="converter__key-header converter__key-cell">Dec</div>
+            <div class="converter__key-header converter__key-cell">Hex</div>
+            <div class="converter__key-cell">0</div>
+            <div class="converter__key-cell">0</div>
+            <div class="converter__key-cell">1</div>
+            <div class="converter__key-cell">1</div>
+            <div class="converter__key-cell">2</div>
+            <div class="converter__key-cell">2</div>
+            <div class="converter__key-cell">3</div>
+            <div class="converter__key-cell">3</div>
+            <div class="converter__key-cell">4</div>
+            <div class="converter__key-cell">4</div>
+            <div class="converter__key-cell">5</div>
+            <div class="converter__key-cell">5</div>
+            <div class="converter__key-cell">6</div>
+            <div class="converter__key-cell">6</div>
+            <div class="converter__key-cell">7</div>
+            <div class="converter__key-cell">7</div>
+            <div class="converter__key-cell">8</div>
+            <div class="converter__key-cell">8</div>
+            <div class="converter__key-cell">9</div>
+            <div class="converter__key-cell">9</div>
+            <div class="converter__key-cell">10</div>
+            <div class="converter__key-cell">A</div>
+            <div class="converter__key-cell">11</div>
+            <div class="converter__key-cell">B</div>
+            <div class="converter__key-cell">12</div>
+            <div class="converter__key-cell">C</div>
+            <div class="converter__key-cell">13</div>
+            <div class="converter__key-cell">D</div>
+            <div class="converter__key-cell">14</div>
+            <div class="converter__key-cell">E</div>
+            <div class="converter__key-cell">15</div>
+            <div class="converter__key-cell">F</div>
+          </div>
+        </aside>
+
+        <!-- Converter Section -->
+        <div class="converter__main">
+          <div class="section-header">
+            <h1 class="section-header__title">Number Base Converter</h1>
+            <p class="section-header__subtitle">Convert between decimal and hexadecimal number systems</p>
+          </div>
+
+          <!-- Mode Toggle -->
+          <div class="converter__mode-toggle">
+            <button class="converter__mode-btn converter__mode-btn--active" data-mode="dec-to-hex">
+              Decimal → Hex
+            </button>
+            <button class="converter__mode-btn" data-mode="hex-to-dec">
+              Hex → Decimal
+            </button>
+          </div>
+
+          <!-- Input Section -->
+          <div class="converter__input-section">
+            <label for="number-input" class="converter__label">Enter a number</label>
+            <div class="converter__input-wrapper">
+              <input 
+                type="text" 
+                id="number-input" 
+                class="converter__input" 
+                placeholder="Enter decimal number (e.g., 255)"
+                autocomplete="off"
+              >
+              <button id="convert-btn" class="btn btn--primary converter__convert-btn">
+                Convert
+              </button>
+            </div>
+            <p id="input-hint" class="converter__hint">Enter a decimal number (e.g., 255 or -255)</p>
+          </div>
+
+          <!-- Result Section -->
+          <div id="result-section" class="converter__result-section hidden">
+            <div class="converter__result">
+              <span class="converter__result-label">Result:</span>
+              <span id="result-value" class="converter__result-value"></span>
+            </div>
+          </div>
+
+          <!-- Steps Demonstration -->
+          <div id="steps-section" class="converter__steps-section hidden">
+            <h2 class="converter__steps-title">How the Conversion Works</h2>
+            <div id="steps-container" class="converter__steps-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="connect">
+    <div class="footer__container">
+      <div class="footer__social">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/jaredlundholm" class="footer__social-link" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://www.linkedin.com/in/jaredlundholm/" class="footer__social-link" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@Tech-Educator-101" class="footer__social-link" aria-label="YouTube Channel" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+
+        <!-- Blogger -->
+        <a href="https://jaredlundholm.blogspot.com/" class="footer__social-link" aria-label="Blogger Blog" target="_blank" rel="noopener noreferrer">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 95.51" style="enable-background:new 0 0 122.88 95.51" xml:space="preserve">
+            <path d="M12.6,26.42h96.77v43.73H12.6V26.42L12.6,26.42z M8.32,0h106.24c4.58,0,8.32,3.74,8.32,8.32v78.87 c0,4.57-3.74,8.32-8.32,8.32H8.32C3.74,95.51,0,91.77,0,87.19V8.32C0,3.74,3.74,0,8.32,0L8.32,0z M117.97,20.1H5.29V88 c0,1.28,1.02,2.3,2.3,2.3h108.04c1.28,0,2.3-1.03,2.3-2.3V20.1H117.97L117.97,20.1z M106.64,7.22c2.27,0,4.11,1.84,4.11,4.11 s-1.84,4.11-4.11,4.11c-2.27,0-4.11-1.84-4.11-4.11S104.38,7.22,106.64,7.22L106.64,7.22z M78.8,7.22c2.27,0,4.11,1.84,4.11,4.11 s-1.84,4.11-4.11,4.11c-2.27,0-4.11-1.84-4.11-4.11S76.53,7.22,78.8,7.22L78.8,7.22z M92.72,7.22c2.27,0,4.11,1.84,4.11,4.11 s-1.84,4.11-4.11,4.11c-2.27,0-4.11-1.84-4.11-4.11S90.45,7.22,92.72,7.22L92.72,7.22z"/>
+          </svg>
+        </a>
+
+        <!-- TryHackMe -->
+        <a href="https://tryhackme.com/p/Lundholmj" class="footer__social-link" aria-label="TryHackMe Profile" target="_blank" rel="noopener noreferrer">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+            <path d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0 -4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a0.625 0.625 0 1 0 0 -1.25H4.761a3.273 3.273 0 0 1 -3.27 -3.27A3.273 3.273 0 0 1 6.59 7.08a0.625 0.625 0 0 0 0.7 -1.035 4.488 4.488 0 0 0 -1.68 -0.69 5.223 5.223 0 0 1 5.096 -4.104 5.221 5.221 0 0 1 5.174 4.57 4.489 4.489 0 0 0 -0.488 0.305 0.625 0.625 0 1 0 0.731 1.013 3.245 3.245 0 0 1 1.912 -0.616 3.278 3.278 0 0 1 3.203 2.61 0.625 0.625 0 0 0 1.225 -0.251 4.533 4.533 0 0 0 -4.428 -3.61 4.54 4.54 0 0 0 -0.958 0.105C16.556 2.328 13.9 0 10.705 0zm5.192 10.64a0.925 0.925 0 0 0 -0.462 0.108 0.913 0.913 0 0 0 -0.313 0.29 1.27 1.27 0 0 0 -0.175 0.427 2.39 2.39 0 0 0 -0.054 0.514c0 0.181 0.018 0.353 0.054 0.517 0.036 0.164 0.095 0.307 0.175 0.43a0.899 0.899 0 0 0 0.313 0.297c0.127 0.073 0.281 0.11 0.462 0.11 0.18 0 0.334 -0.037 0.46 -0.11a0.897 0.897 0 0 0 0.309 -0.296c0.08 -0.124 0.137 -0.267 0.173 -0.431 0.036 -0.164 0.054 -0.336 0.054 -0.517 0 -0.18 -0.018 -0.352 -0.054 -0.514a1.271 1.271 0 0 0 -0.173 -0.426 0.901 0.901 0 0 0 -0.309 -0.291 0.917 0.917 0 0 0 -0.46 -0.108z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="footer__copyright">Copyright CC-BY Since 2019</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
