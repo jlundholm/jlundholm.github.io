@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Tetris - Learn Binary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2563eb;
+      --color-primary-dark: #1d4ed8;
+      --color-secondary: #1e293b;
+      --color-background: #ffffff;
+      --color-background-alt: #f8fafc;
+      --color-text: #334155;
+      --color-text-light: #64748b;
+      --color-text-inverse: #f8fafc;
+      --color-border: #e2e8f0;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --border-radius-md: 0.5rem;
+      --border-radius-lg: 0.75rem;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-background-alt);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 { font-size: 2rem; color: var(--color-secondary); margin-bottom: 1.5rem; }
+
+    .game-container {
+      background: var(--color-background);
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      padding: 1.5rem;
+      display: none;
+    }
+    .game-container.active { display: block; }
+
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .target-display { text-align: center; }
+    .target-label { font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 0.25rem; }
+    .target-value { font-size: 2rem; font-weight: 700; color: var(--color-primary); }
+    .binary-hint { font-size: 1.25rem; color: var(--color-text-light); font-family: monospace; letter-spacing: 0.1em; }
+
+    .stats { display: flex; gap: 2rem; }
+    .stat { text-align: center; }
+    .stat-label { font-size: 0.75rem; color: var(--color-text-light); text-transform: uppercase; }
+    .stat-value { font-size: 1.5rem; font-weight: 600; color: var(--color-secondary); }
+
+    .game-board { display: grid; gap: 2px; background: var(--color-border); padding: 2px; border-radius: var(--border-radius-md); }
+    .cell { width: 40px; height: 40px; background: var(--color-background); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 600; border-radius: 4px; }
+    .cell.filled { color: var(--color-text-inverse); }
+    .cell.zero { background: var(--color-text-light); }
+    .cell.one { background: var(--color-primary); }
+    .cell.clearing { background: #16a34a; animation: pulse 0.3s ease; }
+
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+    .controls { margin-top: 1rem; display: flex; justify-content: center; gap: 1rem; }
+
+    .btn {
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      border: 2px solid var(--color-primary);
+      transition: all 0.15s;
+    }
+    .btn--primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .btn--primary:hover { background: var(--color-primary-dark); }
+    .btn--secondary { background: transparent; color: var(--color-primary); }
+    .btn--secondary:hover { background: var(--color-primary); color: var(--color-text-inverse); }
+
+    .mode-select { text-align: center; padding: 3rem 2rem; }
+    .mode-select h2 { font-size: 1.5rem; color: var(--color-secondary); margin-bottom: 2rem; }
+    .mode-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .mode-btn {
+      padding: 1.5rem 3rem;
+      background: var(--color-background);
+      border: 2px solid var(--color-border);
+      border-radius: var(--border-radius-lg);
+      cursor: pointer;
+      transition: all 0.2s;
+      min-width: 180px;
+    }
+    .mode-btn:hover { border-color: var(--color-primary); transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+    .mode-btn h3 { color: var(--color-secondary); margin-bottom: 0.5rem; }
+    .mode-btn p { font-size: 0.875rem; color: var(--color-text-light); }
+
+    .game-over {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 41, 59, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-inverse);
+      border-radius: var(--border-radius-lg);
+      z-index: 10;
+    }
+    .game-over h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .game-over p { margin-bottom: 1.5rem; color: rgba(248, 250, 252, 0.8); }
+
+    .game-wrapper { position: relative; }
+
+    .instructions { margin-top: 1.5rem; text-align: center; font-size: 0.875rem; color: var(--color-text-light); }
+    .instructions kbd { background: var(--color-background); border: 1px solid var(--color-border); border-radius: 4px; padding: 0.125rem 0.5rem; font-family: inherit; margin: 0 0.25rem; }
+  </style>
+</head>
+<body>
+  <h1>Binary Tetris</h1>
+  
+  <div id="modeSelect" class="mode-select">
+    <h2>Select Difficulty</h2>
+    <div class="mode-buttons">
+      <button class="mode-btn" onclick="startGame('easy')">
+        <h3>Easy Mode</h3>
+        <p>4-bit binary (0-15)<br>4 columns</p>
+      </button>
+      <button class="mode-btn" onclick="startGame('hard')">
+        <h3>Hard Mode</h3>
+        <p>8-bit binary (0-255)<br>8 columns</p>
+      </button>
+    </div>
+  </div>
+
+  <div id="gameContainer" class="game-container">
+    <div class="game-header">
+      <div class="stats">
+        <div class="stat"><div class="stat-label">Score</div><div class="stat-value" id="score">0</div></div>
+        <div class="stat"><div class="stat-label">Level</div><div class="stat-value" id="level">1</div></div>
+      </div>
+      <div class="target-display">
+        <div class="target-label">Match Binary</div>
+        <div class="target-value" id="target">0</div>
+        <div class="binary-hint" id="binaryHint">0000</div>
+      </div>
+      <div class="controls">
+        <button class="btn btn--secondary" onclick="toggleBinaryHint()">Hide</button>
+        <button class="btn btn--secondary" onclick="backToMenu()">Menu</button>
+      </div>
+    </div>
+    <div class="game-wrapper">
+      <div id="gameBoard" class="game-board"></div>
+      <div id="gameOver" class="game-over" style="display: none;">
+        <h2>Game Over</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button class="btn btn--primary" onclick="restartGame()">Play Again</button>
+      </div>
+    </div>
+    <div class="instructions">
+      <kbd>←</kbd><kbd>→</kbd> Move &nbsp;
+      <kbd>↓</kbd> Soft Drop &nbsp;
+      <kbd>↑</kbd> Hard Drop &nbsp;
+      <kbd>Space</kbd> Rotate (0↔1)
+    </div>
+  </div>
+
+  <script>
+    let mode = 'easy', cols = 4, rows = 10, board = [], currentPiece = null, target = 0, score = 0, level = 1, gameInterval = null, dropInterval = 800, isGameOver = false;
+
+    function startGame(selectedMode) {
+      mode = selectedMode;
+      cols = mode === 'easy' ? 4 : 8;
+      rows = 10;
+      score = 0;
+      level = 1;
+      dropInterval = 800;
+      isGameOver = false;
+      document.getElementById('score').textContent = '0';
+      document.getElementById('level').textContent = '1';
+      document.getElementById('modeSelect').style.display = 'none';
+      document.getElementById('gameContainer').classList.add('active');
+      document.getElementById('gameOver').style.display = 'none';
+      initBoard();
+      generateTarget();
+      spawnPiece();
+      startDrop();
+      document.removeEventListener('keydown', handleInput);
+      document.addEventListener('keydown', handleInput);
+    }
+
+    function initBoard() {
+      board = [];
+      for (let r = 0; r < rows; r++) board.push(new Array(cols).fill(null));
+      renderBoard();
+    }
+
+    function renderBoard() {
+      const boardEl = document.getElementById('gameBoard');
+      boardEl.style.gridTemplateColumns = 'repeat(' + cols + ', 40px)';
+      boardEl.innerHTML = '';
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'cell';
+          cell.dataset.row = r;
+          cell.dataset.col = c;
+          if (board[r][c] !== null) {
+            cell.classList.add('filled');
+            cell.classList.add(board[r][c] === 0 ? 'zero' : 'one');
+            cell.textContent = board[r][c];
+          }
+          boardEl.appendChild(cell);
+        }
+      }
+    }
+
+    function generateTarget() {
+      target = mode === 'easy' ? Math.floor(Math.random() * 16) : Math.floor(Math.random() * 256);
+      document.getElementById('target').textContent = target;
+      document.getElementById('binaryHint').textContent = target.toString(2).padStart(cols, '0');
+    }
+
+    function spawnPiece() {
+      const x = Math.floor(Math.random() * cols);
+      currentPiece = { value: Math.random() < 0.5 ? 0 : 1, x: x, y: 0 };
+      if (board[0][x] !== null) gameOver();
+      renderBoard();
+      renderCurrentPiece();
+    }
+
+    function renderCurrentPiece() {
+      if (!currentPiece) return;
+      const cells = document.querySelectorAll('.cell');
+      const index = currentPiece.y * cols + currentPiece.x;
+      if (cells[index]) {
+        cells[index].classList.add('filled');
+        cells[index].classList.add(currentPiece.value === 0 ? 'zero' : 'one');
+        cells[index].textContent = currentPiece.value;
+      }
+    }
+
+    function startDrop() {
+      if (gameInterval) clearInterval(gameInterval);
+      gameInterval = setInterval(drop, dropInterval);
+    }
+
+    function drop() {
+      if (!currentPiece || isGameOver) return;
+      const nextY = currentPiece.y + 1;
+      if (nextY >= rows || board[nextY][currentPiece.x] !== null) { lockPiece(); return; }
+      currentPiece.y = nextY;
+      renderBoard();
+      renderCurrentPiece();
+    }
+
+    function lockPiece() {
+      board[currentPiece.y][currentPiece.x] = currentPiece.value;
+      currentPiece = null;
+      checkLines();
+      spawnPiece();
+    }
+
+    function checkLines() {
+      let clearedRows = [];
+      for (let r = 0; r < rows; r++) {
+        if (board[r].every(cell => cell !== null)) {
+          let binaryValue = 0;
+          for (let c = 0; c < cols; c++) binaryValue = (binaryValue << 1) | board[r][c];
+          if (binaryValue === target) clearedRows.push(r);
+        }
+      }
+      if (clearedRows.length > 0) clearRows(clearedRows);
+    }
+
+    function clearRows(rowsToClear) {
+      const cells = document.querySelectorAll('.cell');
+      rowsToClear.forEach(r => { for (let c = 0; c < cols; c++) cells[r * cols + c].classList.add('clearing'); });
+      setTimeout(() => {
+        rowsToClear.sort((a, b) => b - a).forEach(r => { board.splice(r, 1); board.unshift(new Array(cols).fill(null)); });
+        score += rowsToClear.length * cols * 10 * level;
+        level = Math.floor(score / 500) + 1;
+        dropInterval = Math.max(100, 800 - (level - 1) * 50);
+        document.getElementById('score').textContent = score;
+        document.getElementById('level').textContent = level;
+        generateTarget();
+        startDrop();
+        renderBoard();
+        if (currentPiece) renderCurrentPiece();
+      }, 300);
+    }
+
+    function handleInput(e) {
+      if (!currentPiece || isGameOver) return;
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          if (currentPiece.x > 0 && board[currentPiece.y][currentPiece.x - 1] === null) { currentPiece.x--; renderBoard(); renderCurrentPiece(); }
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          if (currentPiece.x < cols - 1 && board[currentPiece.y][currentPiece.x + 1] === null) { currentPiece.x++; renderBoard(); renderCurrentPiece(); }
+          break;
+        case 'ArrowDown': e.preventDefault(); drop(); break;
+        case 'ArrowUp':
+          e.preventDefault();
+          while (currentPiece.y < rows - 1 && board[currentPiece.y + 1][currentPiece.x] === null) currentPiece.y++;
+          lockPiece();
+          break;
+        case ' ':
+        case 'r':
+        case 'R':
+          e.preventDefault();
+          currentPiece.value = currentPiece.value === 0 ? 1 : 0;
+          renderBoard();
+          renderCurrentPiece();
+          break;
+      }
+    }
+
+    function gameOver() {
+      isGameOver = true;
+      clearInterval(gameInterval);
+      document.getElementById('finalScore').textContent = score;
+      document.getElementById('gameOver').style.display = 'flex';
+    }
+
+    function restartGame() {
+      score = 0; level = 1; dropInterval = 800; isGameOver = false;
+      document.getElementById('score').textContent = '0';
+      document.getElementById('level').textContent = '1';
+      document.getElementById('gameOver').style.display = 'none';
+      initBoard();
+      generateTarget();
+      spawnPiece();
+      startDrop();
+    }
+
+    function toggleBinaryHint() {
+      const hint = document.getElementById('binaryHint');
+      const btn = document.querySelector('button[onclick="toggleBinaryHint()"]');
+      if (hint.style.display === 'none') {
+        hint.style.display = '';
+        btn.textContent = 'Hide';
+      } else {
+        hint.style.display = 'none';
+        btn.textContent = 'Show';
+      }
+    }
+
+    function backToMenu() {
+      isGameOver = true;
+      clearInterval(gameInterval);
+      document.removeEventListener('keydown', handleInput);
+      document.getElementById('modeSelect').style.display = 'block';
+      document.getElementById('gameContainer').classList.remove('active');
+      document.getElementById('gameOver').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
